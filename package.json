@@ -1,6 +1,6 @@
 {
   "name": "pomf",
-  "version": "0.0.1",
+  "version": "0.0.1-0",
   "description": "A pomf clone on steroids, written in node.",
   "homepage": "https://github.com/winneon/pomf.js",
   "bugs": {
