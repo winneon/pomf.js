@@ -1,0 +1,19 @@
+{
+  "name": "pomf",
+  "version": "0.0.1",
+  "description": "A pomf clone on steroids, written in node.",
+  "homepage": "https://github.com/winneon/pomf.js",
+  "bugs": {
+    "url": "https://github.com/winneon/pomf.js/issues"
+  },
+  "license": "MIT",
+  "author": "Jesse Bryan <winneonsword@gmail.com> (http://winneon.moe/)",
+  "main": "index",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/winneon/pomf.js.git"
+  },
+  "scripts": {
+    "postversion": "git push && git push --tags"
+  }
+}
