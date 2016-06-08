@@ -15,5 +15,10 @@
   },
   "scripts": {
     "postversion": "git push origin master && git push --tags"
+  },
+  "dependencies": {
+    "console-stamp": "~0.2.2",
+    "express": "~4.13.4",
+    "pug": "^2.0.0-beta2"
   }
 }
