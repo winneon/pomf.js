@@ -14,6 +14,6 @@
     "url": "https://github.com/winneon/pomf.js.git"
   },
   "scripts": {
-    "postversion": "git push && git push --tags"
+    "postversion": "git push origin master && git push --tags"
   }
 }
