@@ -9,6 +9,15 @@ module.exports = function(req, res, next){
 	res.locals.basedir = req.app.get("views");
 	res.locals.limit = config.limit;
 
+// i'm sorry for breaking code style ;_;
+res.locals.config = `{
+	"Name": "pomf.js",
+	"RequestType": "POST",
+	"RequestURL": "` + config.host.replace(/\/+$/, "") + `/upload",
+	"FileFormName": "upload",
+	"ResponseType": "Text"
+}`;
+
 	if (req.query && req.query.message){
 		res.locals.message = req.query.message;
 	}

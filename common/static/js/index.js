@@ -8,6 +8,16 @@ function resize(){
 	$("label > div > span").css("width", $("label").width());
 }
 
+function sharexClose(){
+	$("div.config").off("click");
+	$(document).off("keydown");
+	$("div.sharex").removeClass("hide");
+
+	$("div.config").animate({ opacity: "0" }, 250, () => {
+		$("div.config").css("visibility", "hidden");
+	});
+}
+
 $("form").ajaxForm({
 	uploadProgress: function(event, position, total, percent){
 		var complete = percent + "%";
@@ -90,6 +100,25 @@ $input.on("change", (event) => {
 	if (event.target.value !== ""){
 		$("form").submit();
 	}
+});
+
+$("div.sharex").on("click", (event) => {
+	$("div.sharex").addClass("hide");
+	$("div.config").css("visibility", "visible");
+
+	$("div.config").animate({ opacity: "1" }, 250, () => {
+		$("div.config").on("click", (event) => {
+			if ($(event.target).hasClass("config")){
+				sharexClose();
+			}
+		});
+
+		$(document).on("keydown", (event) => {
+			if (event.which == 27 && $("div.sharex").hasClass("hide")){
+				sharexClose();
+			}
+		});
+	});
 });
 
 // credit to http://stackoverflow.com/a/8584217

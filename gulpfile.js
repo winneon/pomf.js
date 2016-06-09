@@ -19,4 +19,5 @@ gulp.task("server", () => {
 	});
 });
 
-gulp.task("default", [ "sass:watch", "server" ]);
+gulp.task("watch", [ "sass:watch", "server" ]);
+gulp.task("default", [ "server" ])

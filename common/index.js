@@ -2,7 +2,7 @@
 
 require("console-stamp")(console, {
 	pattern: "HH:MM:ss mmm/dd",
-	metadata: "[shows.js]",
+	metadata: "[pomf.js]",
 	colors: {
 		stamp: "yellow",
 		label: "grey",
