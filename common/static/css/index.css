@@ -120,9 +120,9 @@ header {
       header form label.fade > div {
         opacity: 0;
         transition: opacity .5s; }
-    header form label:not(.disabled):active {
+    header form label:not(.no_hover):active {
       top: 1px; }
-    header form label:hover {
+    header form label:not(.no_hover):hover {
       background-color: #EFEFEF;
       color: #222222; }
     header form label > div {

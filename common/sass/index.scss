@@ -79,11 +79,11 @@ header {
 				transition: border-top .5s, border-left .5s, border-right .5s, border-bottom .5s;
 			}
 
-			&:not(.disabled):active {
+			&:not(.no_hover):active {
 				top: 1px;
 			}
 
-			&:hover {
+			&:not(.no_hover):hover {
 				background-color: #EFEFEF;
 				color: #222222;
 			}

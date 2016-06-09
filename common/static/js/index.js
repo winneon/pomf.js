@@ -14,11 +14,11 @@ $("form").ajaxForm({
 
 		$("input").prop("disabled", true);
 		$("label span").html(complete);
-		$("label > div").animate({ width: complete }, 100);
+		$("label > div").width(complete);
 	},
 	complete: function(xhr){
-		setTimeout(() => {
-			if (xhr.responseText !== "cancel"){
+		switch (xhr.status){
+			case 200:
 				$("label span").html(xhr.responseText);
 				var width = $("label > div").width();
 
@@ -38,8 +38,38 @@ $("form").ajaxForm({
 						$("label > a").animate({ opacity: 1 }, 100);
 					});
 				}, 500);
-			}
-		}, 500);
+
+				break;
+
+			case 413:
+				$("input").prop("disabled", true);
+				$("label").addClass("no_hover");
+
+				$("label").css("background-color", "#E06868");
+				$("label span").html("Woah, too big!");
+				$("label > div").animate({ width: "0%" }, 500);
+
+				setTimeout(() => {
+					// I'd love for this to work, but for some reason the button doesn't fire hte change event after this point.
+
+					/*$("input").prop("disabled", false);
+					$("label").removeClass("no_hover");
+
+					$("label").animate({ backgroundColor: "transparent" }, 200, () => {
+						$("label").css("background-color", "");
+					});
+					$("label span").html(val);*/
+
+					window.location.reload();
+				}, 1500);
+
+				break;
+
+			case 400:
+			default:
+				// do nothing on this one
+				break;
+		}
 	}
 });
 

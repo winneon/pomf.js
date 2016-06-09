@@ -31,12 +31,7 @@ module.exports = (function(){
 					callback(error);
 				}
 			}
-		}),
-		limits: {
-			files: 1,
-			fields: 1,
-			fileSize: config.limit * 1024 * 1024
-		}
+		})
 	});
 
 	app.set("trust proxy", "loopback");
@@ -50,9 +45,14 @@ module.exports = (function(){
 
 	app.post("/upload", upload.single("upload"), (req, res) => {
 		if (req.file){
-			res.send(config.host.replace(/\/+$/, "") + "/" + req.file.filename);
+			if (req.file.size > (config.limit * 1024 * 1024)){
+				fs.unlinkSync(req.file.path);
+				res.status(413).end();
+			} else {
+				res.status(200).send(config.host.replace(/\/+$/, "") + "/" + req.file.filename);
+			}
 		} else {
-			res.send("cancel");
+			res.status(400).end();
 		}
 	});
 
