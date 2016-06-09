@@ -12,6 +12,11 @@ a {
 	text-decoration: none;
 }
 
+section.main {
+	position: relative;
+	height: calc(100% - 75px);
+}
+
 header {
 	display: flex;
 	align-items: center;
@@ -27,7 +32,6 @@ header {
 			padding-top: 30px;
 			font-size: 20px;
 			font-weight: 700;
-			text-transform: uppercase;
 		}
 	}
 
@@ -45,11 +49,11 @@ header {
 			display: block;
 			border: 5px solid #EFEFEF;
 			position: relative;
+			min-width: 300px;
 			height: 80px;
 			font-size: 24px;
 			font-weight: 700;
 			line-height: 80px;
-			text-transform: uppercase;
 			cursor: pointer;
 
 			span,
@@ -57,17 +61,22 @@ header {
 				display: block;
 				box-sizing: border-box;
 				min-width: 300px;
+				margin: 0px auto;
 				padding: 0px 60px;
-
-				&.lower {
-					text-transform: none;
-				}
 			}
 
-			&.disabled {
-				border: none;
+			&.fade {
 				border-top: 5px solid transparent;
+				border-left: none;
+				border-right: none;
 				border-bottom: 5px solid #EFEFEF;
+
+				& > div {
+					opacity: 0;
+					transition: opacity .5s;
+				}
+
+				transition: border-top .5s, border-left .5s, border-right .5s, border-bottom .5s;
 			}
 
 			&:not(.disabled):active {
@@ -89,5 +98,36 @@ header {
 				color: #222222;
 			}
 		}
+	}
+}
+
+footer {
+	background-color: #EFEFEF;
+	box-sizing: border-box;
+	position: absolute;
+	bottom: -75px;
+	width: 100%;
+	padding: 25px 20px;
+	color: #222222;
+	font-size: 18px;
+	text-align: center;
+
+	a {
+		display: inline-block;
+		border-bottom: 1px solid transparent;
+		color: #757575;
+		-webkit-transition: all .1s;
+		-moz-transition: all .1s;
+		-ms-transition: all .1s;
+		-o-transition: all .1s;
+		transition: all .1s;
+
+		&:hover {
+			border-color: #757575;
+		}
+	}
+
+	span.github > a:last-of-type {
+		border-color: transparent;
 	}
 }

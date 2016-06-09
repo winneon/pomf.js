@@ -12,20 +12,32 @@ $("form").ajaxForm({
 	uploadProgress: function(event, position, total, percent){
 		var complete = percent + "%";
 
+		$("input").prop("disabled", true);
 		$("label span").html(complete);
 		$("label > div").animate({ width: complete }, 100);
 	},
 	complete: function(xhr){
 		setTimeout(() => {
-			$("label > div").css("width", "0%");
-
 			if (xhr.responseText !== "cancel"){
-				$("label span").addClass("lower");
-				$("label span").html(xhr.responseText).attr("href", xhr.responseText);
+				$("label span").html(xhr.responseText);
+				var width = $("label > div").width();
+
+				$("label > span").html("");
+				$("label > div > span").html("100%");
 				$("label > span").changeElementType("a");
 
-				$("label").addClass("disabled");
-				$("input").prop("disabled", true);
+				$("label").addClass("fade");
+				$("label").css("min-width", $("label").width() + 10);
+
+				setTimeout(() => {
+					$("label > div").hide();
+
+					$("label > a").animate({ "min-width": width + "px" }, 500, () => {
+						$("label > a").css("opacity", "0");
+						$("label > a").html(xhr.responseText).attr("href", xhr.responseText);
+						$("label > a").animate({ opacity: 1 }, 100);
+					});
+				}, 500);
 			}
 		}, 500);
 	}
@@ -40,7 +52,7 @@ $input.on("change", (event) => {
 		name = event.target.value.split("\\").pop();
 	}
 
-	$label.removeClass("lower");
+	$input.prop("disabled", false);
 	$label.html(name ? "0%" : val);
 
 	resize();

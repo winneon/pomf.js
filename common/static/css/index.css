@@ -70,6 +70,10 @@ a {
   color: inherit;
   text-decoration: none; }
 
+section.main {
+  position: relative;
+  height: calc(100% - 75px); }
+
 header {
   display: flex;
   align-items: center;
@@ -82,8 +86,7 @@ header {
     header > div > div {
       padding-top: 30px;
       font-size: 20px;
-      font-weight: 700;
-      text-transform: uppercase; }
+      font-weight: 700; }
   header form input {
     opacity: 0;
     position: absolute;
@@ -95,25 +98,28 @@ header {
     display: block;
     border: 5px solid #EFEFEF;
     position: relative;
+    min-width: 300px;
     height: 80px;
     font-size: 24px;
     font-weight: 700;
     line-height: 80px;
-    text-transform: uppercase;
     cursor: pointer; }
     header form label span,
     header form label a {
       display: block;
       box-sizing: border-box;
       min-width: 300px;
+      margin: 0px auto;
       padding: 0px 60px; }
-      header form label span.lower,
-      header form label a.lower {
-        text-transform: none; }
-    header form label.disabled {
-      border: none;
+    header form label.fade {
       border-top: 5px solid transparent;
-      border-bottom: 5px solid #EFEFEF; }
+      border-left: none;
+      border-right: none;
+      border-bottom: 5px solid #EFEFEF;
+      transition: border-top .5s, border-left .5s, border-right .5s, border-bottom .5s; }
+      header form label.fade > div {
+        opacity: 0;
+        transition: opacity .5s; }
     header form label:not(.disabled):active {
       top: 1px; }
     header form label:hover {
@@ -127,3 +133,27 @@ header {
       overflow: hidden;
       width: 0%;
       color: #222222; }
+
+footer {
+  background-color: #EFEFEF;
+  box-sizing: border-box;
+  position: absolute;
+  bottom: -75px;
+  width: 100%;
+  padding: 25px 20px;
+  color: #222222;
+  font-size: 18px;
+  text-align: center; }
+  footer a {
+    display: inline-block;
+    border-bottom: 1px solid transparent;
+    color: #757575;
+    -webkit-transition: all .1s;
+    -moz-transition: all .1s;
+    -ms-transition: all .1s;
+    -o-transition: all .1s;
+    transition: all .1s; }
+    footer a:hover {
+      border-color: #757575; }
+  footer span.github > a:last-of-type {
+    border-color: transparent; }
