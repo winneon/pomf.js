@@ -1,3 +1,5 @@
 {
-	"port": 80
+	"host": "http://local.winneon.moe/",
+	"port": 80,
+	"limit": 100
 }

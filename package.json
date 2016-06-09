@@ -8,7 +8,7 @@
   },
   "license": "MIT",
   "author": "Jesse Bryan <winneonsword@gmail.com> (http://winneon.moe/)",
-  "main": "index",
+  "main": "common/index",
   "repository": {
     "type": "git",
     "url": "https://github.com/winneon/pomf.js.git"
@@ -17,8 +17,15 @@
     "postversion": "git push origin master && git push --tags"
   },
   "dependencies": {
+    "body-parser": "^1.15.1",
     "console-stamp": "~0.2.2",
+    "crypto": "0.0.3",
     "express": "~4.13.4",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.1.0",
+    "gulp-sass": "^2.3.1",
+    "multer": "^1.1.0",
+    "nodemon": "^1.9.2",
     "pug": "^2.0.0-beta2"
   }
 }
