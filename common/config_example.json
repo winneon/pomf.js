@@ -1,5 +1,6 @@
 {
 	"host": "localhost",
 	"port": 80,
-	"limit": 100
+	"limit": 100,
+	"frontend": true
 }

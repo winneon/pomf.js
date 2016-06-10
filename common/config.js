@@ -13,7 +13,8 @@ module.exports = (function(){
 	[ // configure required values in the config
 		"host",
 		"port",
-		"limit"
+		"limit",
+		"frontend"
 	].forEach((value) => {
 		if (eval(`config["` + value.split(".").join(`"]["`) + `"]`) === undefined){
 			console.log("The provided config is invalid. Please create a proper config from the example.");

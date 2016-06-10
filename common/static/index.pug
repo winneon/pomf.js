@@ -1,12 +1,12 @@
 html
 	head
 		title pomf.js
-		link(type="text/css", rel="stylesheet", href="/css/index.css")
+		link(type="text/css", rel="stylesheet", href="./css/index.css")
 	body
 		section.main
 			header
 				div
-					form(action="/upload", method="post", enctype="multipart/form-data")
+					form(action="./upload", method="post", enctype="multipart/form-data")
 						input#upload(type="file", name="upload")
 						label(for="upload")
 							div
@@ -24,7 +24,7 @@ html
 					- var github = "https://github.com/Winneon/pomf.js"
 					a(href=github) Github
 					a(href=github) &nbsp;&#10132;
-		script(type="text/javascript", src="/js/jquery.js")
-		script(type="text/javascript", src="/js/jquery.form.js")
-		script(type="text/javascript", src="/js/jquery.color.js")
-		script(type="text/javascript", src="/js/index.js")
+		script(type="text/javascript", src="./js/jquery.js")
+		script(type="text/javascript", src="./js/jquery.form.js")
+		script(type="text/javascript", src="./js/jquery.color.js")
+		script(type="text/javascript", src="./js/index.js")

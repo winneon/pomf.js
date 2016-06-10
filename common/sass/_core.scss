@@ -19,35 +19,35 @@ body {
 	font-family: "Roboto";
 	font-style: normal;
 	font-weight: 400;
-	src: url("/font/robotoregular.ttf") format("truetype");
+	src: url("../font/robotoregular.ttf") format("truetype");
 }
 
 @font-face {
 	font-family: "Roboto";
 	font-style: italic;
 	font-weight: 400;
-	src: url("/font/robotoregularitalic.ttf") format("truetype");
+	src: url("../font/robotoregularitalic.ttf") format("truetype");
 }
 
 @font-face {
 	font-family: "Roboto";
 	font-style: normal;
 	font-weight: 500;
-	src: url("/font/robotomedium.ttf") format("truetype");
+	src: url("../font/robotomedium.ttf") format("truetype");
 }
 
 @font-face {
 	font-family: "Roboto";
 	font-style: italic;
 	font-weight: 500;
-	src: url("/font/robotomediumitalic.ttf") format("truetype");
+	src: url("../font/robotomediumitalic.ttf") format("truetype");
 }
 
 @font-face {
 	font-family: "Roboto";
 	font-style: normal;
 	font-weight: 700;
-	src: url("/font/robotobold.ttf") format("truetype");
+	src: url("../font/robotobold.ttf") format("truetype");
 }
 
 
@@ -55,7 +55,7 @@ body {
 	font-family: "Roboto";
 	font-style: italic;
 	font-weight: 700;
-	src: url("/font/robotobolditalic.ttf") format("truetype");
+	src: url("../font/robotobolditalic.ttf") format("truetype");
 }
 
 
@@ -63,7 +63,7 @@ body {
 	font-family: "Roboto";
 	font-style: normal;
 	font-weight: 900;
-	src: url("/font/robotoblack.ttf") format("truetype");
+	src: url("../font/robotoblack.ttf") format("truetype");
 }
 
 
@@ -71,5 +71,5 @@ body {
 	font-family: "Roboto";
 	font-style: italic;
 	font-weight: 900;
-	src: url("/font/robotoblackitalic.ttf") format("truetype");
+	src: url("../font/robotoblackitalic.ttf") format("truetype");
 }
