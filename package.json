@@ -1,6 +1,6 @@
 {
   "name": "pomf",
-  "version": "1.0.0-1",
+  "version": "1.0.0",
   "description": "A pomf clone written in node.",
   "homepage": "https://github.com/winneon/pomf.js",
   "bugs": {
@@ -14,6 +14,7 @@
     "url": "https://github.com/winneon/pomf.js.git"
   },
   "scripts": {
+    "version": "git add --all",
     "postversion": "git push origin master && git push --tags"
   },
   "dependencies": {

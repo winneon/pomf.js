@@ -6,9 +6,8 @@ var fs   = require("fs"),
 var config = require("./config");
 
 module.exports = function(req, res, next){
-	if (config.frontend){
-		res.locals.basedir = req.app.get("views");
-		res.locals.limit = config.limit;
+	res.locals.basedir = req.app.get("views");
+	res.locals.limit = config.limit;
 
 // i'm sorry for breaking code style ;_;
 res.locals.config = `{
@@ -19,18 +18,19 @@ res.locals.config = `{
 	"ResponseType": "Text"
 }`;
 
-		if (req.query && req.query.message){
-			res.locals.message = req.query.message;
-		}
+	if (req.query && req.query.message){
+		res.locals.message = req.query.message;
+	}
 
-		var file = res.path;
+	var file = res.path;
 
-		if (!file){
-			file = req.path == "/" ? "/index" : req.path;
-		}
+	if (!file){
+		file = req.path == "/" ? "/index" : req.path;
+	}
 
-		file = file.substring(1, file.substring(file.length - 1, file.length) == "/" ? file.length - 1 : file.length);
+	file = file.substring(1, file.substring(file.length - 1, file.length) == "/" ? file.length - 1 : file.length);
 
+	if (config.frontend || file !== "index"){
 		if (fs.existsSync(path.join(req.app.get("views"), file))){
 			res.end();
 		} else if (fs.existsSync(path.join(__dirname, "uploads", file))){
