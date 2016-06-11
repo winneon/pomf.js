@@ -4,6 +4,7 @@ var express = require("express"),
     parser  = require("body-parser"),
     multer  = require("multer"),
     crypto  = require("crypto"),
+    glob    = require("glob"),
     http    = require("http"),
     path    = require("path"),
     fs      = require("fs");
@@ -21,12 +22,19 @@ module.exports = (function(){
 			filename: function(req, file, callback){
 				try {
 					var name = "";
+					var filename = "";
+					var search = [ ];
 
 					do {
-						name = crypto.randomBytes(3).toString("hex") + path.extname(file.originalname);
-					} while (name == "" || fs.existsSync(path.join(__dirname, "uploads", name)));
+						name = crypto.randomBytes(3).toString("hex");  
+						filename = name + path.extname(file.originalname);
 
-					callback(null, name);
+						search = glob.sync(name + ".*", {
+							cwd: path.join(require("app-root-path").path, "common", "uploads")
+						})
+					} while (search.length > 0);
+
+					callback(null, filename);
 				} catch (error){
 					callback(error);
 				}
@@ -49,6 +57,7 @@ module.exports = (function(){
 				fs.unlinkSync(req.file.path);
 				res.status(413).end();
 			} else {
+				console.log("Upload: " + req.file.filename);
 				res.status(200).send(config.host.replace(/\/+$/, "") + "/" + req.file.filename);
 			}
 		} else {

@@ -6,7 +6,7 @@ module.exports = (function(){
 	try {
 		config = require("./config.json");
 	} catch (error){
-		console.error("Unable to find console.json. Please create a new config from the config example.");
+		console.error("The provided config.json is invalid. Please create a new config from the config example.");
 		process.exit(1);
 	}
 	

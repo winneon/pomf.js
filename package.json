@@ -1,6 +1,6 @@
 {
   "name": "pomf",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A pomf clone written in node.",
   "homepage": "https://github.com/winneon/pomf.js",
   "bugs": {
@@ -19,10 +19,12 @@
     "postversion": "git push origin master && git push --tags"
   },
   "dependencies": {
+    "app-root-path": "^1.0.0",
     "body-parser": "^1.15.1",
     "console-stamp": "~0.2.2",
     "crypto": "0.0.3",
     "express": "~4.13.4",
+    "glob": "^7.0.3",
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.1.0",
     "gulp-sass": "^2.3.1",
