@@ -44,7 +44,7 @@ res.locals.config = `{
 				res.render(file, function(error, html){
 					if (error){
 						res.end();
-						console.log(error);
+						console.error(error);
 					} else {
 						res.send(html);
 					}
